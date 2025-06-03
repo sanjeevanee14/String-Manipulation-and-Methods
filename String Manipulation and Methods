@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String Methods</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>String Manipulation and Methods</h2>
+        <input type="text" id="userInput" placeholder="Enter a string">
+        <button onclick="applyStringMethods()">Process String</button>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function applyStringMethods() {
+            let str = document.getElementById('userInput').value.trim();
+            if (!str) {
+                document.getElementById('output').innerHTML = "<p>Please enter a valid string!</p>";
+                return;
+            }
+
+            let resultHTML = `<p><strong>Original String:</strong> "${str}"</p>`;
+
+            // Length of string
+            resultHTML += `<p><strong>Length:</strong> ${str.length}</p>`;
+
+            // Character at index 2 (Handling empty case)
+            resultHTML += `<p><strong>Character at index 2:</strong> ${str.charAt(2) || "N/A"}</p>`;
+
+            // Concatenation
+            resultHTML += `<p><strong>Concatenation:</strong> "${str.concat(' is awesome!')}"</p>`;
+
+            // Check if string includes 'JS'
+            resultHTML += `<p><strong>Includes 'JS'?:</strong> ${str.includes("JS") ? "Yes" : "No"}</p>`;
+
+            // First occurrence of 'a'
+            resultHTML += `<p><strong>First Occurrence of 'a':</strong> ${str.indexOf("a") !== -1 ? str.indexOf("a") : "Not found"}</p>`;
+
+            // Last occurrence of 'a'
+            resultHTML += `<p><strong>Last Occurrence of 'a':</strong> ${str.lastIndexOf("a") !== -1 ? str.lastIndexOf("a") : "Not found"}</p>`;
+
+            // Slicing the string (0 to 5)
+            resultHTML += `<p><strong>Slice (0, 5):</strong> ${str.slice(0, Math.min(5, str.length))}</p>`;
+
+            // Splitting based on spaces
+            resultHTML += `<p><strong>Split by space:</strong> ${str.includes(" ") ? str.split(" ").join(" | ") : "No spaces found"}</p>`;
+
+            // Convert to uppercase and lowercase
+            resultHTML += `<p><strong>Uppercase:</strong> ${str.toUpperCase()}</p>`;
+            resultHTML += `<p><strong>Lowercase:</strong> ${str.toLowerCase()}</p>`;
+
+            // Trim spaces from string
+            resultHTML += `<p><strong>Trimmed:</strong> "${str.trim()}"</p>`;
+
+            document.getElementById('output').innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>
